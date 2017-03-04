@@ -10,9 +10,11 @@ Hook WeChat.app on non-jailbroken devices.
 - [x] 阻止撤回消息
 - [x] 自动抢红包
 
-## Articles
+## 参考
 
-参考自：[Make WeChat Great Again](http://yulingtianxia.com/blog/2017/02/28/Make-WeChat-Great-Again/)
+[Make WeChat Great Again](http://yulingtianxia.com/blog/2017/02/28/Make-WeChat-Great-Again/)
+[TweakForWeChatRedEnvelop](https://github.com/kasumar/TweakForWeChatRedEnvelop/blob/master/TweakForWeChatRedEnvelop/TweakForWeChatRedEnvelop.xm)
+[iOSAppHook](https://github.com/Urinx/iOSAppHook#%E4%BD%BF%E7%94%A8Reveal%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1%E7%9A%84App%E7%95%8C%E9%9D%A2)
 
 ## 使用
 
