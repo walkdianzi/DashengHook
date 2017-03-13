@@ -310,35 +310,35 @@ CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, id, arg1, MsgWrap, id
 }
 
 // 关闭朋友圈入口
-CHOptimizedMethod2(self, CGFloat, FindFriendEntryViewController, tableView, UITableView *, tableView, heightForRowAtIndexPath, NSIndexPath *, indexPath)
-{
-    NSIndexPath *timelineIndexPath = [self valueForKeyPath:@"m_WCTimeLineIndexPath"];
-    if ([indexPath isEqual: timelineIndexPath] || indexPath.section == 2) {
-        NSLog(@"## Hide Time Line Entry ##");
-        return 0;
-    }
-    return CHSuper2(FindFriendEntryViewController, tableView, tableView, heightForRowAtIndexPath, indexPath);
-}
-
-CHOptimizedMethod2(self, UITableViewCell *, FindFriendEntryViewController, tableView, UITableView *, tableView, cellForRowAtIndexPath, NSIndexPath *, indexPath)
-{
-    NSIndexPath *timelineIndexPath = [self valueForKeyPath:@"m_WCTimeLineIndexPath"];
-    UITableViewCell *cell = CHSuper2(FindFriendEntryViewController, tableView, tableView, cellForRowAtIndexPath, indexPath);
-    if ([indexPath isEqual: timelineIndexPath] || indexPath.section == 2) {
-        NSLog(@"## Hide Time Line Entry ##");
-        cell.hidden = YES;
-        for (UIView *subview in cell.subviews) {
-            [subview removeFromSuperview];
-        }
-    }
-    return cell;
-}
-
-CHOptimizedMethod1(self, void, FindFriendEntryViewController, viewDidAppear, BOOL, animated)
-{
-    CHSuper1(FindFriendEntryViewController, viewDidAppear, animated);
-    [self performSelector:@selector(reloadData)];
-}
+//CHOptimizedMethod2(self, CGFloat, FindFriendEntryViewController, tableView, UITableView *, tableView, heightForRowAtIndexPath, NSIndexPath *, indexPath)
+//{
+//    NSIndexPath *timelineIndexPath = [self valueForKeyPath:@"m_WCTimeLineIndexPath"];
+//    if ([indexPath isEqual: timelineIndexPath] || indexPath.section == 2) {
+//        NSLog(@"## Hide Time Line Entry ##");
+//        return 0;
+//    }
+//    return CHSuper2(FindFriendEntryViewController, tableView, tableView, heightForRowAtIndexPath, indexPath);
+//}
+//
+//CHOptimizedMethod2(self, UITableViewCell *, FindFriendEntryViewController, tableView, UITableView *, tableView, cellForRowAtIndexPath, NSIndexPath *, indexPath)
+//{
+//    NSIndexPath *timelineIndexPath = [self valueForKeyPath:@"m_WCTimeLineIndexPath"];
+//    UITableViewCell *cell = CHSuper2(FindFriendEntryViewController, tableView, tableView, cellForRowAtIndexPath, indexPath);
+//    if ([indexPath isEqual: timelineIndexPath] || indexPath.section == 2) {
+//        NSLog(@"## Hide Time Line Entry ##");
+//        cell.hidden = YES;
+//        for (UIView *subview in cell.subviews) {
+//            [subview removeFromSuperview];
+//        }
+//    }
+//    return cell;
+//}
+//
+//CHOptimizedMethod1(self, void, FindFriendEntryViewController, viewDidAppear, BOOL, animated)
+//{
+//    CHSuper1(FindFriendEntryViewController, viewDidAppear, animated);
+//    [self performSelector:@selector(reloadData)];
+//}
 
 // 去掉 TabBar 小红点
 
@@ -409,9 +409,9 @@ CHConstructor // code block that runs immediately upon load
         CHHook1(WCRedEnvelopesLogicMgr, OpenRedEnvelopesRequest);
         CHHook2(WCRedEnvelopesLogicMgr, OnWCToHongbaoCommonResponse, Request);
         CHLoadLateClass(FindFriendEntryViewController);
-        CHHook2(FindFriendEntryViewController, tableView, heightForRowAtIndexPath);
-        CHHook2(FindFriendEntryViewController, tableView, cellForRowAtIndexPath);
-        CHHook1(FindFriendEntryViewController, viewDidAppear);
+        //CHHook2(FindFriendEntryViewController, tableView, heightForRowAtIndexPath);
+        //CHHook2(FindFriendEntryViewController, tableView, cellForRowAtIndexPath);
+        //CHHook1(FindFriendEntryViewController, viewDidAppear);
         CHLoadLateClass(MMTabBarController);
         CHHook2(MMTabBarController, setTabBarBadgeImage, forIndex);
         CHHook2(MMTabBarController, setTabBarBadgeString, forIndex);
