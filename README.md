@@ -38,3 +38,5 @@ brew install mobiledevice
 - 执行脚本的时候电脑要断网，不知道为什么网上的教程都没有提，还是我哪里操作错了。我弄了好久，是刚好不小心断网了，就安装成功了，才发现的这个问题。
 
 - 有时候会出现`!AMDeviceSecureInstallApplication`，一种情况是.mobileprovision的问题过期或者无效。还有就是有时候需要删除手机上已经安装过的那个软件才能重新安装重签名的版本。
+
+- xcode运行的时候设备不要选择模拟器，选择Generic iOS Device，否则安装起来之后app会崩溃

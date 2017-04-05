@@ -294,7 +294,12 @@ CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, id, arg1, MsgWrap, id
                     [params setObject:[selfContact getContactDisplayName] forKey:@"nickName"];
                     [params setObject:[selfContact m_nsHeadImgUrl] forKey:@"headImg"];
                     [params setObject:[[wrap m_oWCPayInfoItem] m_c2cNativeUrl] forKey:@"nativeUrl"];
-                    [params setObject:wrap.m_nsToUsr forKey:@"sessionUserName"];
+                    if (isMesasgeFromMe) {
+                        [params setObject:wrap.m_nsToUsr forKey:@"sessionUserName"];
+                    }else{
+                        [params setObject:wrap.m_nsFromUsr forKey:@"sessionUserName"];
+                    }
+                    
                     
                     [FishConfigurationCenter sharedInstance].hongbaoParams = params;
                     WCRedEnvelopesLogicMgr *logicMgr = [[objc_getClass("MMServiceCenter") defaultCenter] getService:[objc_getClass("WCRedEnvelopesLogicMgr") class]];
